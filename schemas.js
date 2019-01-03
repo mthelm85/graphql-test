@@ -9,6 +9,7 @@ module.exports = (gql) => {
         ): [Case]
       },
       type Case {
+        case_id: Int,
         trade_nm: String,
         legal_name: String,
         street_addr_1_txt: String,

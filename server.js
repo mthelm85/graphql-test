@@ -1,11 +1,12 @@
 'use strict'
-
 const { ApolloServer, gql } = require('apollo-server-express'),
       express = require('express'),
       mongoClient = require('mongodb').MongoClient,
+      morgan = require('morgan'),
       url = process.env.MONGODB_URI || 'mongodb://localhost:27017/whd-api'
 
 const app = express()
+app.use(morgan('dev'))
 
 mongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
   if (err) throw err
